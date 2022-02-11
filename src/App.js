@@ -1,34 +1,29 @@
-import { useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import SideNav from './SideNav';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Dashboard from './components/Dashboard/Dashboard';
+import ReactPage from './components/React/React';
+import Investment from './components/Investments/Investment';
+import { Container } from '@mui/material';
+import InvestmentAdd from './components/Investments/InvestmentAdd';
+import Header from './components/Header/Header';
 
 function App() {
-  const [wid, setWid] = useState('0%');
-    const openSideNav = () => {
-        setWid('25%')
-    }
-    const closeSideNav = () => {
-        setWid('0%')
-    }
+  const name = "Sarbesh";
   return (
-    <div className="App">
-      <button onClick={openSideNav}>Open</button>
-      <SideNav width={wid} name='Sarbesh Sarkar' closeNav={closeSideNav}/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Header name={name} />
+        <Container id="main">
+          <Routes>
+              <Route index element={<Dashboard elem="Dashboard"/>}></Route>
+              <Route path="/home" element={<Dashboard elem="dashboard"/>}></Route>
+              <Route path="/react" element={<ReactPage />}></Route>
+              <Route path="/investment" element={<Investment />}></Route>
+              <Route path="/investment/add" element={<InvestmentAdd />}></Route>
+          </Routes>
+        </Container>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,0 +1,43 @@
+{
+  "investments": [
+    {
+      "id": 1,
+      "type": "lic",
+      "fy": "2021-22",
+      "date": "28-01-2022",
+      "plan": "Lic Jivan Anand",
+      "issuer": "Mihir",
+      "number": 461859165,
+      "first_year": 21312,
+      "onward": 20393,
+      "pay_term": 26,
+      "policy_term": 26,
+      "returns": 1373000,
+      "comments": ""
+    },
+    {
+      "id": 2,
+      "type": "lic",
+      "fy": "2021-22",
+      "date": "03-02-2022",
+      "plan": "Lic Jivan Anand",
+      "issuer": "Bandana",
+      "number": 667019442,
+      "first_year": 11445,
+      "onward": 10690,
+      "pay_term": 21,
+      "policy_term": 21,
+      "returns": 404800,
+      "comments": ""
+    }
+  ],
+  "invest_type": [
+    "LIC",
+    "ELSS",
+    "NPS",
+    "NSC",
+    "FD",
+    "5FD",
+    "Stocks"
+  ]
+}
