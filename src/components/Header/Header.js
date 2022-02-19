@@ -69,7 +69,7 @@ const Header = (props) => {
                 </Container>
                 <Box id="top-user-log" sx={{'& svg': { m: 1.5,},
                 '& hr': {mx: 0.5,},}}>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                         Hi {props.name}
                     </Typography>
                     <Divider orientation='vertical' variant='middle' flexItem />
