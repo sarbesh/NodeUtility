@@ -2,7 +2,7 @@ import { Container, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/m
 import { Box } from '@mui/system';
 import {React, Component, useState} from 'react';
 import SaveIcon from '@mui/icons-material/Save';
-import API from '../../utils/api';
+import {local} from '../../utils/api';
 import withRouter from '../../utils/withRouter';
 
 class InvestmentAdd extends Component{
@@ -40,7 +40,7 @@ class InvestmentAdd extends Component{
     }
 
     componentDidMount = async () => {
-        API.get("invest_type")
+        local.get("invest_type")
         .then(res => {
             this.setState({invest_type: res.data});
             this.setData("type", res.data[0],false);
@@ -116,7 +116,7 @@ class InvestmentAdd extends Component{
         //     comments: this.state.comments
         // };
 
-        await API({
+        await local({
             url : "investments",
             method: "POST",
             data: investment

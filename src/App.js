@@ -7,6 +7,7 @@ import Investment from './components/Investments/Investment';
 import { Container } from '@mui/material';
 import InvestmentAdd from './components/Investments/InvestmentAdd';
 import Header from './components/Header/Header';
+import AllStocks from './components/NSE/AllStocks';
 
 function App() {
   const name = "Sarbesh";
@@ -21,6 +22,7 @@ function App() {
               <Route path="/react" element={<ReactPage />}></Route>
               <Route path="/investment" element={<Investment />}></Route>
               <Route path="/investment/add" element={<InvestmentAdd />}></Route>
+              <Route path="/allstocks" element={<AllStocks />}></Route>
           </Routes>
         </Container>
       </BrowserRouter>

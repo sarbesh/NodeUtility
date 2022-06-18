@@ -11,7 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link, NavLink } from 'react-router-dom';
 import '../../App.css'
-import API from '../../utils/api';
+import {local,nse} from '../../utils/api';
 import EditIcon from '@mui/icons-material/Edit';
 import InvestmentAdd from './InvestmentAdd';
 import { Box, Divider, SpeedDialIcon } from '@mui/material';
@@ -31,7 +31,7 @@ export default class Investment extends React.Component{
     }
 
     componentDidMount(){
-        API.get("investments")
+        local.get("investments")
         .then(res => {
             const investment = res.data;
             this.setState({investments: investment});
@@ -44,7 +44,7 @@ export default class Investment extends React.Component{
         var investments = this.state.investments;
         var id = investments.splice(idx,1)[0].id;
         // console.log(id);
-        API.delete(`investments/${id}`)
+        local.delete(`investments/${id}`)
         .then(res => {
             if(res.status===200){
                 this.setState({investments: investments})
