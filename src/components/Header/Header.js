@@ -14,11 +14,11 @@ import { useState } from 'react';
 
 const Header = (props) => {
     const [openNav, setOpenNav] = useState(false);
-    const openSideNav=()=>{
-      setOpenNav(true);
+    const openSideNav = () => {
+        setOpenNav(true);
     }
-    const closeSideNav=()=>{
-      setOpenNav(false);
+    const closeSideNav = () => {
+        setOpenNav(false);
     }
     const drawer = (
         <List className="text-capitalize">
@@ -37,38 +37,40 @@ const Header = (props) => {
 
     return (
         <AppBar position="sticky">
-            <Toolbar>
-                <MenuIcon fontSize="large" onClick={openSideNav}/>
+            <Toolbar >
+                <MenuIcon fontSize="large" onClick={openSideNav} />
                 <Typography variant="title" colour="primary">
                     ReactApp
                 </Typography>
                 <Container>
                     <Hidden xsDown>
-                        <SwipeableDrawer anchor="left" 
-                            open={openNav} 
-                            onOpen={openSideNav} 
+                        <SwipeableDrawer anchor="left"
+                            open={openNav}
+                            onOpen={openSideNav}
                             onClose={closeSideNav}>
-                                <div>
-                                    <IconButton onClick={closeSideNav}>
-                                        <ChevronLeftRounded />
-                                    </IconButton>
-                                    <Divider />
-                                    {drawer}
-                                </div>
-                            </SwipeableDrawer>
-                        </Hidden>
-                        <Hidden xsUp>
-                            <Drawer variant="permanent">
-                                <Toolbar />
-                                <Box>
-                                    {drawer}
-                                </Box>
-                            </Drawer>
-                        </Hidden>
+                            <div>
+                                <IconButton onClick={closeSideNav}>
+                                    <ChevronLeftRounded />
+                                </IconButton>
+                                <Divider />
+                                {drawer}
+                            </div>
+                        </SwipeableDrawer>
+                    </Hidden>
+                    <Hidden xsUp>
+                        <Drawer variant="permanent">
+                            <Toolbar />
+                            <Box>
+                                {drawer}
+                            </Box>
+                        </Drawer>
+                    </Hidden>
                     <Outlet />
                 </Container>
-                <Box id="top-user-log" sx={{'& svg': { m: 1.5,},
-                '& hr': {mx: 0.5,},}}>
+                <Box id="top-user-log" sx={{
+                    '& svg': { m: 1.5, },
+                    '& hr': { mx: 0.5, },
+                }}>
                     <Typography variant="body1">
                         Hi {props.name}
                     </Typography>

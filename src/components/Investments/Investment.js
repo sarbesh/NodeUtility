@@ -11,51 +11,51 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link, NavLink } from 'react-router-dom';
 import '../../App.css'
-import {local,nse} from '../../utils/api';
+import { local, nse } from '../../utils/api';
 import EditIcon from '@mui/icons-material/Edit';
 import InvestmentAdd from './InvestmentAdd';
 import { Box, Divider, SpeedDialIcon } from '@mui/material';
-import { RemoveRedEye} from '@mui/icons-material';
+import { RemoveRedEye } from '@mui/icons-material';
 
-export default class Investment extends React.Component{
+export default class Investment extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             investments: [],
             error: {},
             delid: {}
         };
-        this.componentDidMount=this.componentDidMount.bind(this);
-        this.deleteEntry=this.deleteEntry.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.deleteEntry = this.deleteEntry.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         local.get("investments")
-        .then(res => {
-            const investment = res.data;
-            this.setState({investments: investment});
-        }).catch((err) => {
-            this.setState({error: err});
-        })
+            .then(res => {
+                const investment = res.data;
+                this.setState({ investments: investment });
+            }).catch((err) => {
+                this.setState({ error: err });
+            })
     }
 
-    deleteEntry = (idx,event) => {
+    deleteEntry = (idx, event) => {
         var investments = this.state.investments;
-        var id = investments.splice(idx,1)[0].id;
+        var id = investments.splice(idx, 1)[0].id;
         // console.log(id);
         local.delete(`investments/${id}`)
-        .then(res => {
-            if(res.status===200){
-                this.setState({investments: investments})
-            }
-        })
-        .catch(err => {
-            this.setState({error: err});
-        })
+            .then(res => {
+                if (res.status === 200) {
+                    this.setState({ investments: investments })
+                }
+            })
+            .catch(err => {
+                this.setState({ error: err });
+            })
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <NavLink to="/investment/add">
@@ -77,7 +77,7 @@ export default class Investment extends React.Component{
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.investments.map((investment,idx) => (
+                            {this.state.investments.map((investment, idx) => (
                                 <TableRow key={investment.id}>
                                     <TableCell className="text-capitalize">{investment.type}</TableCell>
                                     <TableCell>{investment.fy}</TableCell>
@@ -89,7 +89,7 @@ export default class Investment extends React.Component{
                                     <TableCell>{investment.comments}</TableCell>
                                     <TableCell>
                                         <Box>
-                                            <DeleteIcon onClick={ (e) => this.deleteEntry(idx,e)}/>
+                                            <DeleteIcon onClick={(e) => this.deleteEntry(idx, e)} />
                                             <EditIcon />
                                             <RemoveRedEye />
                                         </Box>

@@ -10,3 +10,25 @@
     transition: margin-left .5s;
     padding: 20px;
 }
+
+/* Color Theme Swatches in Hex */
+.blue-sku-white-theme-1-hex { color: #0F9BF2; }
+.blue-sku-white-theme-2-hex { color: #0D8BD9; }
+.blue-sku-white-theme-3-hex { color: #0FB2F2; }
+.blue-sku-white-theme-4-hex { color: #77CFF2; }
+.blue-sku-white-theme-5-hex { color: #BDE3F2; }
+
+/* Color Theme Swatches in RGBA */
+.blue-sku-white-theme-1-rgba { color: rgba(15, 155, 242, 1); }
+.blue-sku-white-theme-2-rgba { color: rgba(13, 139, 217, 1); }
+.blue-sku-white-theme-3-rgba { color: rgba(15, 178, 242, 1); }
+.blue-sku-white-theme-4-rgba { color: rgba(119, 207, 242, 1); }
+.blue-sku-white-theme-5-rgba { color: rgba(189, 227, 242, 1); }
+
+/* Color Theme Swatches in HSLA */
+.blue-sku-white-theme-1-hsla { color: hsla(202, 89, 50, 1); }
+.blue-sku-white-theme-2-hsla { color: hsla(202, 88, 45, 1); }
+.blue-sku-white-theme-3-hsla { color: hsla(196, 89, 50, 1); }
+.blue-sku-white-theme-4-hsla { color: hsla(197, 82, 70, 1); }
+.blue-sku-white-theme-5-hsla { color: hsla(196, 67, 84, 1); }
+
